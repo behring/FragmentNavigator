@@ -1,7 +1,6 @@
 package cn.behring.fragmentnavigationmanagement
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,18 +12,18 @@ import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.navigation.findNavController
+import cn.behring.fragmentnavigationmanagement.navigator.NavigationHandlerFragment
 
 
-class FirstFragment : Fragment() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+class FirstFragment : NavigationHandlerFragment() {
+    companion object {
+      const val  REQUEST_KEY_REFRESH_A_LIST = "refresh A list"
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         return ComposeView(requireContext()).apply {
             setContent {
 
@@ -44,4 +43,11 @@ class FirstFragment : Fragment() {
         }
     }
 
+    override fun registerFragmentResultHandlers(): List<FragmentResultHandler> {
+        return listOf(
+            FragmentResultHandler(REQUEST_KEY_REFRESH_A_LIST) {
+                println("A list has been refreshed.")
+            }
+        )
+    }
 }
