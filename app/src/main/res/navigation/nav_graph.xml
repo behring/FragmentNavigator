@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/firstFragment">
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="cn.behring.fragmentnavigationmanagement.FirstFragment" >
+        <action
+            android:id="@+id/action_firstFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_thirdFragment"
+            app:destination="@id/thirdFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_fourthFragment"
+            app:destination="@id/fourthFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_fifthFragment"
+            app:destination="@id/fifthFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="cn.behring.fragmentnavigationmanagement.SecondFragment" >
+        <action
+            android:id="@+id/action_secondFragment_to_thirdFragment"
+            app:destination="@id/thirdFragment" />
+        <action
+            android:id="@+id/action_secondFragment_to_fourthFragment"
+            app:destination="@id/fourthFragment" />
+        <action
+            android:id="@+id/action_secondFragment_to_fifthFragment"
+            app:destination="@id/fifthFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="cn.behring.fragmentnavigationmanagement.ThirdFragment" />
+
+    <fragment
+        android:id="@+id/fourthFragment"
+        android:name="cn.behring.fragmentnavigationmanagement.FourthFragment" />
+
+    <fragment
+        android:id="@+id/fifthFragment"
+        android:name="cn.behring.fragmentnavigationmanagement.FifthFragment" />
+
+</navigation>
